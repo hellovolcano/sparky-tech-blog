@@ -47,3 +47,7 @@ article {
     padding: 5px 10px;
 }
 
+/* FORM styles */
+form div {
+    margin: 10px;
+}

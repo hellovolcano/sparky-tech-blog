@@ -11,7 +11,7 @@ router.get('/:id', (req,res) => {
     })
     .then(dbPostData => {
         if (!dbPostData) {
-            console.log(err)
+            res.status(404).json({ message: 'No post founnd with this id'})
             return
         }
         res.json(dbPostData)
@@ -22,6 +22,7 @@ router.get('/:id', (req,res) => {
     })
 })
 
+// create a post
 router.post('/', (req, res) => {
     Post.create({
         title: req.body.title,
