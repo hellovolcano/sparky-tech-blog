@@ -1,0 +1,49 @@
+* {
+    font-family: 'Albert Sans', sans-serif;
+}
+body {
+    margin: 0;
+}
+
+/* main styles */
+main {
+     margin: 10px 20px;
+}
+
+/* Navigation styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: cadetblue;
+    margin: 0;
+}
+
+header nav ul {
+    list-style-type: none;
+    /* margin: 0; */
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+/* Post styles */
+
+article {
+    border: 2px solid cadetblue;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+
+.post-heading {
+    display: flex;
+    justify-content: space-between;
+    background-color:cadetblue;
+    padding: 2px 10px;
+}
+
+.post-body {
+    padding: 5px 10px;
+}
+

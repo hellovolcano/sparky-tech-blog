@@ -1,3 +1,13 @@
 <div>
-    This is the home page!
+    {{#each posts}}
+    <article>
+        <div class="post-heading">
+            <h3>{{this.title}}</h3>
+            <p>{{user.username}} on {{this.created_at}}</p>
+        </div>
+        <div class="post-body">
+            <p>{{this.post_content}}</p>
+        </div>
+    </article>
+    {{/each}}
 </div>
