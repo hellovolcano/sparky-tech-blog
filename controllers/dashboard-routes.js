@@ -7,9 +7,10 @@ router.get('/', (req,res) => {
     Post.findAll({
         where: {
             //use the id from the session
-            id: req.session.user_id
+            user_id: req.session.user_id
         }
     })
+    
     .then(dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('dashboard', { posts, loggedIn: true })
