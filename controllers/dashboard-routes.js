@@ -21,4 +21,30 @@ router.get('/', (req,res) => {
     })
 })
 
+router.get('/edit/:id', (req, res) => {
+    Post.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbPostData => {
+        if (!dbPostData) {
+            res.status(404).json({ message: 'No post found'})
+            return
+        }
+
+        // serialize data before passing to template
+        const post = dbPostData.get({ plain: true });
+        res.render('edit-post', { post, loggedIn: true })
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json(err)
+    })
+})
+
+router.get('/new-post', (req,res) => {
+    res.render('new-post')
+})
+
 module.exports = router

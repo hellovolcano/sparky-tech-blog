@@ -47,4 +47,49 @@ router.post('/', (req, res) => {
     })
 })
 
+// Update the title of the post
+router.put('/:id', (req,res) => {
+    Post.update(
+        {
+            title: req.body.title,
+            post_content: req.body.post_content
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+    .then(dbPostData => {
+        if(!dbPostData) {
+            res.status(404).json({ message: 'No post found with this id!'})
+            retur
+        }
+        res.json(dbPostData)
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json(err)
+    })
+})
+
+// delete a post
+router.delete('/:id', (req, res) => {
+    Post.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbPostData => {
+        if (!dbPostData) {
+            res.status(404).json({ message: "No post with that ID found"})
+            return
+        }
+        res.json(dbPostData)
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json(err)
+    })
+})
 module.exports = router
