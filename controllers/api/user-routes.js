@@ -45,6 +45,7 @@ router.post('/', (req,res) => {
     })
 })
 
+// login route for a user
 router.post('/login', (req,res) => {
 
     User.findOne({
@@ -72,6 +73,19 @@ router.post('/login', (req,res) => {
             res.json({ user: dbUserData, message: 'You are now logged in!'})
         })
     })
+})
+
+//logout route
+router.post('/logout', (req, res) => {
+    // if the session loggedIn variable evaluates to true, destroy the session
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end()
+        })
+    }
+    else {
+        res.status(404).end()
+    }
 })
 
 module.exports = router

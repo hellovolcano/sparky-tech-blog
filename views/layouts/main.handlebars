@@ -15,15 +15,22 @@
         <h1>The Tech Blog</h1>
         <nav>
             <ul>
-                <li>HOME</li>
-                <li>DASHBOARD</li>
-                <li>LOGIN</li>
-                <li>LOGOUT</li>
+                <li><a href="/">HOME</a></li>
+                {{#if loggedIn}}
+                <li><a href="/dashboard">DASHBOARD</a></li>
+                <li><button id="logout">LOGOUT</button></li>
+                {{else}}
+                <li><a href="/login">LOGIN</a></li>
+                {{/if}}
+                
             </ul>
         </nav>
     </header>
     <main>
     {{{ body }}}
     </main>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 </html>
