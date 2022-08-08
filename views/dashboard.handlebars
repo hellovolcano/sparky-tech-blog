@@ -1,12 +1,21 @@
-<a href="/dashboard/new-post">Add new post</a>
-
+<div class="new-post-link">
+    <a href="/dashboard/new-post">Add new post</a>
+</div>
 {{#if posts.length }}
 <section>
     <h2>Your Posts</h2>
     <div>
         {{#each posts as |post|}}
-            {{> post-info post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+        <div class="dashboard-post">
+            <h3>
+                {{post.title}} (<a href="/dashboard/edit/{{post.id}}" class="edit-link">edit</a>)
+            </h3>
+            <p>
+                {{format_date this.created_at}}
+            </p>
+        </div>    
+            {{!-- {{> post-info post}} --}}
+            {{!-- <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a> --}}
         {{/each}}
     </div>
 </section>
