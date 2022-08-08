@@ -11,10 +11,26 @@
         <div>
             <textarea id="post-content">{{post.post_content}}</textarea>
         </div>
+        <div>
+            <a href="/post/{{post_id}}">{{post.comments.length}} comment(s) </a>
+        </div>
         <button type="submit">Save post</button>
         <button type="button" class="delete-post-btn">Delete post</button>
     </form>
 </article>
 
+<form class="comment-form">
+    <div>
+        <textarea name="comment-body"></textarea>
+    </div>
+
+    <div>
+        <button type="submit">add comment</button>
+    </div>
+</form>
+
+{{> comments post.comments}}
+
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
+<script src="/javascript/comment.js"></script>

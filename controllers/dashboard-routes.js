@@ -35,7 +35,7 @@ router.get('/edit/:id', (req, res) => {
 
         // serialize data before passing to template
         const post = dbPostData.get({ plain: true });
-        res.render('edit-post', { post, loggedIn: true })
+        res.render('edit-post', { post, loggedIn: req.session.loggedIn })
     })
     .catch(err => {
         console.log(err)
@@ -44,7 +44,7 @@ router.get('/edit/:id', (req, res) => {
 })
 
 router.get('/new-post', (req,res) => {
-    res.render('new-post', { loggedIn: true})
+    res.render('new-post', { loggedIn: req.session.loggedIn})
 })
 
 module.exports = router
