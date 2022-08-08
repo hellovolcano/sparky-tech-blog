@@ -1,9 +1,10 @@
 const router = require('express').Router()
 const sequelize = require('../config/connection')
 const { User, Post } = require('../models')
+const withAuth = require('../utils/auth')
 
 // Render the dashboard
-router.get('/', (req,res) => {
+router.get('/', withAuth, (req,res) => {
     Post.findAll({
         where: {
             //use the id from the session
@@ -21,7 +22,7 @@ router.get('/', (req,res) => {
     })
 })
 
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
