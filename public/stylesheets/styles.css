@@ -13,8 +13,13 @@ body {
     margin: 0;
 }
 
-a{
-    color: var(--secondary)
+a {
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
 }
 
 /* main styles */
@@ -55,6 +60,10 @@ header a {
     margin-left: 10px;
 }
 
+header a:hover {
+    color: var(--secondary);
+}
+
 header button {
     background: none;
     color: var(--header-text);
@@ -63,6 +72,10 @@ header button {
     padding: 0;
     font-size: 100%;
     margin-left: 10px;
+}
+
+header button:hover {
+    color: var(--secondary);
 }
 
 /* Post styles */
@@ -97,7 +110,7 @@ form {
 }
 
 form div {
-    margin: 10px;
+    margin-top: 10px;
 }
 
 form label {
@@ -123,20 +136,31 @@ form button {
     padding: 10px;
     border: 1px solid black;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: var(--primary);
 }
 
 /* DASHBOARD styles */
 .new-post-link {
-    margin-top: 10px;
+    position: relative;
+    margin-top: 30px;
     text-align: center;
 }
 
 .new-post-link a {
-    background: var(--primary);
+    background: var(--secondary);
     color: var(--header-text);
     border: 1px solid black;
     padding: 10px;
     border-radius: 5px;
+    text-decoration: none;
+}
+
+.new-post-link a:hover {
+    background: var(--primary)
 }
 
 .dashboard-post {

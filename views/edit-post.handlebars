@@ -15,18 +15,13 @@
         <button type="button" class="delete-post-btn">Delete post</button>
     </form>
 </section>
+{{!-- Comment form --}}
+{{> comment-form}}
 
-<form class="comment-form">
-    <div>
-        <textarea name="comment-body"></textarea>
-    </div>
-
-    <div>
-        <button type="submit">add comment</button>
-    </div>
-</form>
-
-{{> comments post.comments}}
+{{!-- Display comments if there are comments --}}
+{{#if post.comments.length}}
+    {{> comments post.comments}}
+{{/if}}
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>

@@ -27,7 +27,7 @@ const signupFormHandler = async(event) => {
         if (response.ok) {
             console.log('user created')
             // take them to the dashboard once they've created an account
-            document.location.replace('/login')
+            document.location.replace('/dashboard')
         } else {
             alert(response.statusText)
         }

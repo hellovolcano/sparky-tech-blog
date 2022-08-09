@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const sequelize = require('../config/connection')
-const { User, Post } = require('../models')
+const { User, Post, Comment } = require('../models')
 const withAuth = require('../utils/auth')
 
 // Render the dashboard
@@ -38,7 +38,23 @@ router.get('/edit/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
-        }
+        },
+        attributes: ['id','title','post_content','created_at'],
+        include: [
+            {
+                model: Comment,
+                attributes: ['id','comment_body','user_id','post_id','created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']  
+            }
+            
+        ]
     })
     .then(dbPostData => {
         if (!dbPostData) {
