@@ -4,7 +4,7 @@ The tech blog is a CMS-backed blogging site that users can create and share blog
 
 ![Image of app](mvc-blog.png)
 
-## Deployed Application
+### Links
 [Deployed Application](https://cryptic-forest-67933.herokuapp.com/)
 
 
@@ -13,7 +13,7 @@ Complete the following to run this code locally:
 
 1. Clone the repo.
 2. Run npm install at the root folder of this project
-3. Create a .env file at the root folder of this project with the following format:
+3. Create a .env file at the root folder of this project with the following format:   
             DB_NAME='sparky_tech_blog'  
             DB_USER='your-mysql-username'  
             DB_PASSWORD='your-mysql-password'  
